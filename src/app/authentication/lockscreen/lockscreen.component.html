@@ -1,0 +1,30 @@
+<div
+  class="login-register"
+  style="background-color: #282c34"
+>
+  <div class="login-register-box">
+    <mat-card>
+      <mat-card-content>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="text-center">
+            <h4 class="m-t-0">David Miller</h4>
+          </div>
+
+          <div fxLayout="row wrap">
+            <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+              <button
+                mat-raised-button
+                class="btn-block btn-lg m-t-10 m-b-10"
+                color="primary"
+                type="submit"
+                [disabled]="!form.valid"
+              >
+                Unlock
+              </button>
+            </div>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

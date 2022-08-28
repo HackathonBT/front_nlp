@@ -1,0 +1,46 @@
+<div fxLayout="row" fxLayoutAlign="center start">
+  <div fxFlex.gt-md="100" fxFlex.gt-sm="100" fxFlex="100">
+    <mat-card class="mat-card-top notes-app">
+      <mat-sidenav-container
+        [ngClass]="{ 'side-panel-opened': sidePanelOpened, 'side-panel-closed': !sidePanelOpened }"
+      >
+        <mat-toolbar class="no-shadow">
+          <img src={logo} className="App-logo" alt="logo" />
+          <div fxLayout="row" fxFlex="100" fxLayoutAlign="center center">
+            <div fxFlex class="m-l-20">
+              <button
+                class="float-right check"
+                mat-raised-button
+                color="primary"
+                (click)="check()"
+                *ngIf="editorData"
+              >
+                Проверить на соответствие
+              </button>
+              <button
+                class="float-right"
+                mat-raised-button
+                color="primary"
+                (click)="fileUpload.click()"
+              >
+                Загрузка НПА
+              </button>
+              <input
+                type="file"
+                id="fileInput"
+                name="fileInput"
+                style="display: none"
+                #fileUpload
+                (change)="selectFile($event)"
+              />
+            </div>
+          </div>
+        </mat-toolbar>
+        <mat-card-content class="chat-middle-box">
+          <mat-progress-bar mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+            <div #textEl style="overflow-y: auto; height: 710px; padding: 16px"> </div>
+        </mat-card-content>
+      </mat-sidenav-container>
+    </mat-card>
+  </div>
+</div>
